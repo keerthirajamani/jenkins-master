@@ -36,6 +36,7 @@ pipeline {
             steps {
                 echo "${env.TEST_RESULTS}"
                 echo "${TEST_RESULTS}"
+                echo "deployed"
                 script {
                     print(TEST_RESULTS)
                     if (TEST_RESULTS) {
