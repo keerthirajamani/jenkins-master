@@ -7,7 +7,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    withCredentials([usernamePassword( credentialsId: 'myCredentials',
+                    withCredentials([usernamePassword( credentialsId: 'e6f03bbc-a426-42d7-b8d9-eced80a1e6d7',
                      usernameVariable: 'MYUSER', passwordVariable: 'MYPWD' )]) {
                         echo "User: $MYUSER, Pwd: $MYPWD"
                     }
