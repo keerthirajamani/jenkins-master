@@ -1,0 +1,36 @@
+version: "3.3"
+services:
+    mysql:
+        image: mysq
+        container_name: my
+        ports:
+          - 3306:3306
+        volumes:
+            - data:/tmp
+        secrets:
+          - sec
+        environment:
+          MYSQL_PASSWORD_FILE: /run/secrets/sec
+          MYSQL_DATABASE: ${MYSQL_DATABASE}
+          MYSQL_USER: ${MYSQL_USER}
+          MYSQL_ROOT_PASSWORD_FILE: /run/secrets/sec
+    server:
+        image: nod
+        container_name: nod
+        ports:
+          - 4000:4000
+        secrets:
+          - sec
+        environment:
+          MYSQL_DATABASE: ${MYSQL_DATABASE}
+          MYSQL_USER: ${USER}
+          HOST: ${HOST}
+          MYSQL_PASSWORD_FILE: /run/secrets/sec
+
+volumes:
+    data: 
+      driver: local
+
+secrets:
+  sec:
+    file: mm.sql
