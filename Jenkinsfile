@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'master' }
+    agent { label 'main' }
     environment {
         TEST_RESULTS = true
     }
