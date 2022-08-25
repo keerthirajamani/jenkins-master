@@ -27,6 +27,12 @@ pipeline {
             }
         }
         stage('deploy') {
+            when {
+                expression {
+                    TEST_RESULTS
+                }
+            }
+
             steps {
                 echo "${env.TEST_RESULTS}"
                 echo "${TEST_RESULTS}"
