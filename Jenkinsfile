@@ -48,11 +48,12 @@ pipeline {
         stage('post-build') {
             steps {
                 script {
-                    sh 'sudo aws ecr-public get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin public.ecr.aws/p3t0m4x7'
-                    sh 'sudo su'
-                    app = docker.build('mysq')
-                    docker.withRegistry('https://877969058937.dkr.ecr.us-east-1.amazonaws.com', '') {
-                        app.push("public.ecr.aws/p3t0m4x7/dock_task_mysql:${env.BUILD_NUMBER}")
+                    // sh 'sudo aws ecr-public get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin public.ecr.aws/p3t0m4x7'
+                    // sh 'sudo su'
+                    // app = docker.build('mysq')
+                    // docker.withRegistry('https://877969058937.dkr.ecr.us-east-1.amazonaws.com', '') {
+                    //     app.push("public.ecr.aws/p3t0m4x7/dock_task_mysql:${env.BUILD_NUMBER}")
+                    echo "I am Doneeeeee..."
                     }
                 }
             // sh 'sudo docker tag mysq public.ecr.aws/p3t0m4x7/dock_task_mysql:latest'
