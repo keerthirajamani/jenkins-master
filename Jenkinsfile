@@ -38,6 +38,7 @@ pipeline {
                 echo "${TEST_RESULTS}"
                 echo "deployed"
                 script {
+                    sh 'docker pull mysql-mysql-server'
                     sh 'docker run --name=mysql-container -d mysql/mysql-server'
                     sh 'docker run -p 3306:3306 --name mysql-container -e MYSQL_ROOT_PASSWORD=root123! -d mysql'
                     print(TEST_RESULTS)
