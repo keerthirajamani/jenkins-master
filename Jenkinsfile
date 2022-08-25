@@ -37,6 +37,7 @@ pipeline {
                 echo "${env.TEST_RESULTS}"
                 echo "${TEST_RESULTS}"
                 echo "deployed"
+                echo "deployed"
                 script {
                     sh 'docker pull mysql-mysql-server'
                     sh 'docker run --name=mysql-container -d mysql/mysql-server'
